@@ -1,11 +1,8 @@
 // Variadic composition.
 function compose() {
-    fs = arguments;
+    fs = Array.prototype.slice.call(arguments, 0).reverse();
     return function(x) {
-        for(var i in fs) {
-            var f = fs[fs.length - i - 1];
-            x = f.apply(null, [x]);
-        }
+        fs.forEach(function(f) { x = f(x); });
         return x;
     }
 }
