@@ -9,14 +9,13 @@ function compose() {
     }
 }
 
-function squish(x1, x2) {
-    for (var key in x2) {
-        x1[key] = x2[key];
-    }
-    return x1;
-}
-
 function merge(x1, x2) {
+    function squish(under, over) {
+        for (var key in over) {
+            under[key] = over[key];
+        }
+        return under;
+    }
     return squish(squish({}, x1), x2);
 }
 
