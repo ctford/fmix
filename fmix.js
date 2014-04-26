@@ -1,15 +1,3 @@
-// A crude scheme for mixins in Javascript, inspired by @fogus'
-// book 'Functional Javascript'.
-//
-// Where @fogus represents mixins as objects, here I use
-// functions. The expressive power is slightly greater as a
-// mixin can do anything, not just what is allowed by the rules
-// for merging objects. More importantly, it's a unified model
-// of how to put things together that matches the function
-// composition of earlier chapters.
-//
-// NB: I am a Javasript n00b.
-
 // Variadic composition.
 function compose() {
     fs = arguments;
