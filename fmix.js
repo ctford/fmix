@@ -1,6 +1,11 @@
-function compose(f1, f2) {
+function compose() {
+    fs = arguments;
     return function(x) {
-        return f1(f2(x));
+        for(var i in fs) {
+            var f = fs[fs.length - i - 1];
+            x = f.apply(null, [x]);
+        }
+        return x;
     }
 }
 
@@ -28,7 +33,7 @@ function Friendly(x) {
 }
 
 var TitledPerson = compose(Titled, Person);
-var Friend = compose(Friendly, TitledPerson);
+var Friend = compose(Friendly, Titled, Person);
 var tony = new Friend("Tony");
 
 console.log(tony);
